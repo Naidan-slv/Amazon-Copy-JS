@@ -55,10 +55,13 @@
       <div class="products-grid js-products-grid">
       </div>
     </div>
-    <script src="data/cart.js"></script>
+
     <script src="data/products.js"></script>
-    <script src="scripts/amazon.js"></script>
-    
-    
+    <script type = "module" src="scripts/amazon.js"></script>
+    <!-- It combines all th files into 1 big file which can cause naming conflicts.
+     If we used cart in one folder then we cant use cart in another folder. --> 
+    <!-- We can use a MODULE to help us keep a value in a single file -->
+     <!--To create a module we create a file , dont load the file with a script tag, -->
+     <!--To get a variable out of a file we need to 1.Add type ="module"attribute 2. expoert.3.import-->
   </body>
 </html>
