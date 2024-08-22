@@ -1,12 +1,10 @@
-import { cart as MyCart } from "../data/cart.js";
+import {cart, addToCart} from "../data/cart.js";
 import{products} from "../data/products.js";
-/* this can help us avoid naming conflicts. Now we can use cart as a variable name in this file
-without worrying about the order of the scripts tag
-*/
+// we can import more things using a comma from the same file using modules
+
 
 let productsHTML ='';
 
-// down below we have a accumlator pattern to create a string of html
 products.forEach((product)=>{
     productsHTML += `
         <div class="product-container">
@@ -61,42 +59,24 @@ products.forEach((product)=>{
     `;
 })
 
-// the purpose a data attribute is to store data in the DOM in a way that is accessible to JavaScript
-// we can attach the products name to the button and when we click on it we can access the name of the product
-// when using data attributes in HTML, the convention is to use lowercase and hyphens (Kebab)
-
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
+
+function updateCartQuantity(){
+    let cartQuantity = 0;
+
+        cart.forEach((cartItem)=>{
+            cartQuantity += cartItem.quantity;
+        });
+        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+        console.log(cartQuantity);
+        console.log(cart); 
+}
 
 document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     button.addEventListener('click',()=>{
-        const productId = button.dataset.productId; // it goes from kebab case to camel case (Check the console without the .productName)
+        const productId = button.dataset.productId; 
         
-        let matchingItem;
-
-
-        cart.forEach((item)=>{
-            if(productId === item.productId){
-                matchingItem = item;
-            }
-        });
-        if(matchingItem){
-            matchingItem.quantity += 1;
-        }
-        else{
-            cart.push({
-                productId: productId,
-                quantity : 1
-            });
-        }
-
-        let cartQuantity = 0;
-
-        cart.forEach((item)=>{
-            cartQuantity += item.quantity;
-        });
-
-        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
-        console.log(cartQuantity);
-        console.log(cart);
+        addToCart(productId);
+        updateCartQuantity();
     }); 
 });
