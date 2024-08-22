@@ -1,8 +1,8 @@
 import { cart as MyCart } from "../data/cart.js";
-
+import{products} from "../data/products.js";
 /* this can help us avoid naming conflicts. Now we can use cart as a variable name in this file
 without worrying about the order of the scripts tag
-*\
+*/
 
 let productsHTML ='';
 
