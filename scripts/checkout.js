@@ -95,5 +95,5 @@ cart.forEach((cartItem)=>{
           `;
 })
 
-document.querySelector('.js-cart-summary').innerHTML = cartSummaryHtml;
+document.querySelector('.js-order-summary').innerHTML = cartSummaryHtml;
 // this will generate all the html in the checkout.js file and put it into the checkout.html file
