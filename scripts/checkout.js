@@ -17,7 +17,7 @@ cart.forEach((cartItem) => {
     }
   });
 
-  const deliveryOptionId = cartItem.deliveryOptionID;
+  const deliveryOptionId = cartItem.deliveryOptionId;
 
   let deliveryOption;
 
@@ -86,7 +86,7 @@ function deliveryOptionsHTML(matchingProduct,cartItem){
       ? 'Free'
       : `£${formatCurrency(deliveryOption.priceCents)} - `;
 
-      const isChecked = deliveryOption.id === cartItem.deliveryOptionID;
+      const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
 
     html += `
     <div class="delivery-option">
