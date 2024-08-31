@@ -14,10 +14,14 @@
   <script src="lib/jasmine-5.1.1/boot1.js"></script>
 
   <script  src="Utils/moneyTest.js" type="module"></script>  
-  <script src="../tests-jasmine/data/cartTest.js" type="module"></script>  
+  <script src="../tests-jasmine/data/cartTest.js" type="module"></script>
+  <script src="checkout/orderSummaryTest.js" type ="module"></script>  
   
 </head>
 
 <body>
+  <!--we need to create an element with the class js-order-summary 
+  We put it inside the body so we don't want to modify the entire body so we put into a container-->
+  <div class="js-test-container"></div>
 </body>
 </html>
