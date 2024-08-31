@@ -11,7 +11,7 @@ describe('test suite : renderOrderSummary',()=>{
         <div class = "js-order-summary"></div>
         <div class = "js-payment-summary"></div>
         `;
-
+//checking the commits
         
         spyOn(localStorage, 'getItem').and.callFake(() => {
             return JSON.stringify([{
